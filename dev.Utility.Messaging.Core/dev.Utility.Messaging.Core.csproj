@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B0B4FAEC-5EE2-445F-B4AC-F27B49D4A19C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dev.Utility.Messaging.Core</RootNamespace>
+    <AssemblyName>dev.Utility.Messaging.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugCommonOutput|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\DebugCommonOutput\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AegisImplicitMail, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AIM.1.0.2\lib\net45\AegisImplicitMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.0.1\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dev.Common.Database.EntityFramework\dev.Common.Database.EntityFramework.csproj">
+      <Project>{EDAEAC50-2292-40C7-9631-77D4D3AB78BC}</Project>
+      <Name>dev.Common.Database.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dev.Common.Database\dev.Common.Database.csproj">
+      <Project>{57841B21-558F-4D83-B5C2-8EAA161DB372}</Project>
+      <Name>dev.Common.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dev.Common.Exceptions\dev.Common.Exceptions.csproj">
+      <Project>{1de0607e-c96c-4e0e-8961-08776a3f1beb}</Project>
+      <Name>dev.Common.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dev.Common.MetaUI\dev.Common.MetaUI.csproj">
+      <Project>{6F2FAE13-124D-4AE7-93E3-24A8D2C2AB7B}</Project>
+      <Name>dev.Common.MetaUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dev.Common\dev.Common.csproj">
+      <Project>{CB4783AD-396F-45AC-8683-DE8DEBDDC8FC}</Project>
+      <Name>dev.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dev.Utility.Messaging.Common\dev.Utility.Messaging.Common.csproj">
+      <Project>{4c7b204b-0932-4774-bf50-d93ef1cdbd61}</Project>
+      <Name>dev.Utility.Messaging.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dev.Utility.Messaging.Data.EF\dev.Utility.Messaging.Data.EF.csproj">
+      <Project>{0EC437CE-15E6-4CFA-A620-E2FB968C0FAE}</Project>
+      <Name>dev.Utility.Messaging.Data.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.Auto.cs">
+      <DependentUpon>AssemblyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\Imp\Interfaces\IEmailServer.cs" />
+    <Compile Include="Sources\Imp\Stuff\Caches.cs" />
+    <Compile Include="Sources\Imp\Stuff\Constants.cs" />
+    <Compile Include="Sources\Imp\Stuff\Loggers.cs" />
+    <Compile Include="Sources\Imp\Stuff\Senders\EmailSender.cs" />
+    <Compile Include="Sources\Imp\Stuff\Senders\SmsSender.cs" />
+    <Compile Include="Sources\Imp\Types\DefaultEmailServer.cs" />
+    <Compile Include="Sources\Imp\Types\SSLEmailServer.cs" />
+    <Compile Include="Sources\Imp\Types\WebMailEmailServer.cs" />
+    <Compile Include="Sources\Imp\Workers\Messenger.pvt.Background.cs" />
+    <Compile Include="Sources\Imp\Workers\Messenger.imp.IMessenger.cs" />
+    <Compile Include="Sources\Imp\Workers\Messenger.imp.IMessengerAdministration.cs" />
+    <Compile Include="Sources\Pub\Requirements\IMessengerRequirements.cs" />
+    <Compile Include="Sources\Imp\Workers\Messenger.cs" />
+    <Compile Include="Sources\Sys\MessagingSystem.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\version.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
